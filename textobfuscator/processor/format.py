@@ -2,7 +2,7 @@ from collections import defaultdict
 from itertools import chain
 from typing import Callable, Dict, List
 
-from text_obfuscator.utils import FullFillFormat, Utils
+from textobfuscator.utils import FullFillFormat, Utils
 
 from .construct import BaseObscure
 

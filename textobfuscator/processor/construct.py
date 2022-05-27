@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import List
 
-from text_obfuscator.utils import BaseDataclass
+from textobfuscator.utils import BaseDataclass
 
 
 @dataclass

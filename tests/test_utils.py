@@ -3,7 +3,7 @@ import re
 import pytest
 
 from tests.conftest import test_pair
-from text_obfuscator.utils import Utils
+from textobfuscator.utils import Utils
 
 to_test_get_arg_keys = [
     test_pair(input="", expected=[]),

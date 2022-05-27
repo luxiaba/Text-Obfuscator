@@ -1,6 +1,6 @@
-from text_obfuscator.auxiliary import DEFAULT_FORMAT_PREFIX_RULES, MAP_SIMPLE_MIX_SOURCE
-from text_obfuscator.obfuscator import TextObfuscator
-from text_obfuscator.processor import BreakWord, ObscureConfig, Replace
+from textobfuscator.auxiliary import DEFAULT_FORMAT_PREFIX_RULES, MAP_SIMPLE_MIX_SOURCE
+from textobfuscator.obfuscator import TextObfuscator
+from textobfuscator.processor import BreakWord, ObscureConfig, Replace
 
 TEXT_OBFUSCATOR = TextObfuscator(
     replace_source_map=MAP_SIMPLE_MIX_SOURCE,

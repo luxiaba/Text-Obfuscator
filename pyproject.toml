@@ -25,6 +25,9 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Utilities"
 ]
+packages = [
+    { include = "textobfuscator" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.8.7"
@@ -58,4 +61,4 @@ ignore = "D100, D101, D104, D107, D213, D407"
 # D407: Missing dashed underline after section.
 
 [tool.coverage.run]
-source = ["text_obfuscator"]
+source = ["textobfuscator"]

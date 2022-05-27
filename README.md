@@ -2,10 +2,10 @@
 
 Obfuscate your message with [Text Obfuscator]()
 
-[![CI](https://github.com/luxiaba/textobfuscator/actions/workflows/ci.yaml/badge.svg)](https://github.com/luxiaba/textobfuscator/actions/workflows/ci.yaml)
-[![PyPI](https://img.shields.io/pypi/v/textobfuscator?color=blue&label=PyPI)](https://pypi.org/project/textobfuscator/)
+[![CI](https://github.com/luxiaba/TextObfuscator/actions/workflows/ci.yaml/badge.svg)](https://github.com/luxiaba/textobfuscator/actions/workflows/ci.yaml)
+[![PyPI](https://img.shields.io/pypi/v/TextObfuscator?color=blue&label=PyPI)](https://pypi.org/project/textobfuscator/)
 [![Python 3.8.7](https://img.shields.io/badge/python-3.8.7-blue.svg)](https://www.python.org/downloads/release/python-387/)
-[![codecov](https://codecov.io/gh/luxiaba/textobfuscator/branch/main/graph/badge.svg?token=WlaPtdYdpg)](https://codecov.io/gh/luxiaba/textobfuscator)
+[![codecov](https://codecov.io/gh/luxiaba/TextObfuscator/branch/main/graph/badge.svg?token=WlaPtdYdpg)](https://codecov.io/gh/luxiaba/textobfuscator)
 
 
 ### Installation
@@ -17,7 +17,7 @@ pip install -U textobfuscator
 
 ```python
 import random
-from text_obfuscator.obfuscator import TextObfuscator
+from textobfuscator.obfuscator import TextObfuscator
 
 # 1. Replace char.
 # First, now we define rules: replace chars groups.
@@ -42,7 +42,7 @@ obfuscator = TextObfuscator(
 Now we have an instance of `TextObfuscator`: `obfuscator`, let's do some obfuscations.
 
 ```python
-from text_obfuscator.processor import BreakWord, ObscureConfig, Replace
+from textobfuscator.processor import BreakWord, ObscureConfig, Replace
 
 # For each obfuscation, we may specify different rules, such as controls for different words or the number of substitutions, so we make rule here first.
 BREAK_WORDS_RULES = [

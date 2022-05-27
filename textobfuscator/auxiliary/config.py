@@ -2,8 +2,8 @@ import random
 import string
 from typing import Dict, List, Tuple
 
-from text_obfuscator.processor import KEY_PREFIX, RULE_FUNC, ObfuscatorReplace
-from text_obfuscator.utils import ChoiceEnum
+from textobfuscator.processor import KEY_PREFIX, RULE_FUNC, ObfuscatorReplace
+from textobfuscator.utils import ChoiceEnum
 
 from .replace_maps import MAP_CYRILLIC_MIX_SOURCE, MAP_MIX_SOURCE, MAP_SIMPLE_MIX_SOURCE
 

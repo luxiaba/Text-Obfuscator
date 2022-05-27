@@ -1,7 +1,7 @@
 import re
 from typing import Dict, List, Pattern, Tuple
 
-from text_obfuscator.processor import (
+from textobfuscator.processor import (
     KEY_PREFIX,
     RULE_FUNC,
     BreakWord,
@@ -11,7 +11,7 @@ from text_obfuscator.processor import (
     ObscureConfig,
     Replace,
 )
-from text_obfuscator.utils import Utils
+from textobfuscator.utils import Utils
 
 RE_KEY_ARGS = re.compile(r"(\{.*?})")
 KEY_ARG_POSITION = List[Tuple[str, Tuple[int, int]]]
