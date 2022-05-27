@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "TextObfuscator"
+version = "0.1.0"
+description = "Text obfuscator."
+authors = ["fishermanadg <fishermanadg@gmail.com>"]
+license = "MIT"
+readme = 'README.md'
+keywords = ["text", "obfuscator", "obfuscate"]
+repository = "https://github.com/luxiaba/TextObfuscator.git"
+homepage = "https://github.com/luxiaba/TextObfuscator"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8.7"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+pytest = "^7.1.2"
+pytest-cover = "^3.0.0"
+pre-commit = "^2.19.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+target-version = ["py38"]
+line-length = 120
+
+[tool.isort]
+# https://github.com/psf/black/blob/06ccb88bf2bd35a4dc5d591bb296b5b299d07323/docs/guides/using_black_with_other_tools.md#isort
+profile = "black"
+line_length = 120
+
+[tool.pydocstyle]
+ignore = "D100, D101, D104, D107, D213, D407"
+# D100: docstring in public module.
+# D101: docstring in public class.
+# D104: docstring in public package.
+# D107: docstring in `__init__`.
+# D213: Multi-line docstring summary should start at the second line.
+# D407: Missing dashed underline after section.
+
+[tool.coverage.run]
+source = ["text_obfuscator"]
