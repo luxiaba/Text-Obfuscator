@@ -9,8 +9,8 @@ from .replace_maps import MAP_CYRILLIC_MIX_SOURCE, MAP_MIX_SOURCE, MAP_SIMPLE_MI
 
 
 class TextObfuscatorReplaceLevel(ChoiceEnum):
-    L1 = "L1", (MAP_SIMPLE_MIX_SOURCE, False)
-    L2 = "L2", (MAP_MIX_SOURCE, False)
+    L1 = "L1", (MAP_MIX_SOURCE, False)
+    L2 = "L2", (MAP_SIMPLE_MIX_SOURCE, False)
     L3 = "L3", (MAP_CYRILLIC_MIX_SOURCE, True)
 
     def __init__(self, key, replace_mapping: Tuple[Tuple[List], bool]):
