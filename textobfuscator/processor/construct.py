@@ -1,15 +1,15 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Optional
 
 from textobfuscator.utils import BaseDataclass
 
 
 @dataclass
 class Replace(BaseDataclass):
-    count: int = None  # High priority.
-    percent: int = None  # Middle priority.
-    remaining: int = None  # Low priority.
+    count: Optional[int] = 0  # High priority.
+    percent: Optional[int] = 0  # Middle priority.
+    remaining: Optional[int] = 0  # Low priority.
 
     def is_valid(self) -> bool:
         """At least one number we can calc the final value."""
@@ -29,7 +29,7 @@ class BreakWord(BaseDataclass):
 
 
 @dataclass
-class ObscureConfig(BaseDataclass):
+class ObfuscationConfig(BaseDataclass):
     replaces: Replace = field(default_factory=Replace)
     break_words: List[BreakWord] = field(default_factory=list)
 
@@ -39,7 +39,7 @@ class ObscureConfig(BaseDataclass):
         return break_words_is_valid and self.replaces.is_valid()
 
 
-class BaseObscure(ABC):
+class BaseObfuscator(ABC):
     @abstractmethod
     def mix(self, *args, **kwargs):
         """Each processor need to make a mix func to use."""

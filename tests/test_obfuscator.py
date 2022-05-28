@@ -1,12 +1,12 @@
 from textobfuscator.auxiliary import DEFAULT_FORMAT_PREFIX_RULES, MAP_SIMPLE_MIX_SOURCE
 from textobfuscator.obfuscator import TextObfuscator
-from textobfuscator.processor import BreakWord, ObscureConfig, Replace
+from textobfuscator.processor import BreakWord, ObfuscationConfig, Replace
 
 TEXT_OBFUSCATOR = TextObfuscator(
     replace_source_map=MAP_SIMPLE_MIX_SOURCE,
     format_prefix_rules=DEFAULT_FORMAT_PREFIX_RULES,
 )
-OBFUSCATOR_CONFIG = ObscureConfig(
+OBFUSCATOR_CONFIG = ObfuscationConfig(
     replaces=Replace(count=2),
     break_words=[
         BreakWord(word="hello", places=2, fill="*"),

@@ -3,12 +3,12 @@ import re
 from typing import Dict, List
 
 from ..utils import Utils
-from .construct import BaseObscure, BreakWord
+from .construct import BaseObfuscator, BreakWord
 
 RE_BREAK_CHECK_SPLITTER = re.compile(r"\w+")
 
 
-class ObfuscatorWordBreak(BaseObscure):
+class ObfuscatorWordBreak(BaseObfuscator):
     @staticmethod
     def break_word(word: str, config: BreakWord) -> str:
         """Break a word according to the config.

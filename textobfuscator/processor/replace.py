@@ -3,7 +3,7 @@ import re
 from typing import Dict, List, Pattern, Tuple
 
 from ..utils import Utils
-from .construct import BaseObscure, Replace
+from .construct import BaseObfuscator, Replace
 
 DEFAULT_SKIP_ITEMS: List[Pattern] = [
     # Url.
@@ -15,7 +15,7 @@ DEFAULT_SKIP_ITEMS: List[Pattern] = [
 ]
 
 
-class ObfuscatorReplace(BaseObscure):
+class ObfuscatorReplace(BaseObfuscator):
     def __init__(self, source_map: Tuple[List, ...], only_first: bool = False, skip_items: List[Pattern] = None):
         self._map, self._pattern = self.build_similar_map(source_map, only_first)
         self.skip_re_items = DEFAULT_SKIP_ITEMS if skip_items is None else skip_items

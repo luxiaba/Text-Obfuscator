@@ -4,13 +4,13 @@ from typing import Callable, Dict, List
 
 from textobfuscator.utils import FullFillFormat, Utils
 
-from .construct import BaseObscure
+from .construct import BaseObfuscator
 
 KEY_PREFIX = str
 RULE_FUNC = Callable[[], str]
 
 
-class ObfuscatorFormat(BaseObscure):
+class ObfuscatorFormat(BaseObfuscator):
     def __init__(self, prefix_rules: Dict[KEY_PREFIX, RULE_FUNC] = None):
         self.prefix_rules = prefix_rules or {}
 

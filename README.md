@@ -42,16 +42,16 @@ obfuscator = TextObfuscator(
 Now we have an instance of `TextObfuscator`: `obfuscator`, let's do some obfuscations.
 
 ```python
-from textobfuscator.processor import BreakWord, ObscureConfig, Replace
+from textobfuscator.processor import BreakWord, ObfuscationConfig, Replace
 
 # For each obfuscation, we may specify different rules, such as controls for different words or the number of substitutions, so we make rule here first.
 BREAK_WORDS_RULES = [
-  # We break the word `hello` twice, and put `*` into the middle, like `h*el*lo`
-  BreakWord(word="hello", places=2, fill="*"),
-  # We break the word `world` twice, and put `-` into the middle, like `wor-ld`
-  BreakWord(word="world", places=1, fill="-"),
+   # We break the word `hello` twice, and put `*` into the middle, like `h*el*lo`
+   BreakWord(word="hello", places=2, fill="*"),
+   # We break the word `world` once, and put `-` into the middle, like `wor-ld`
+   BreakWord(word="world", places=1, fill="-"),
 ]
-OBFUSCATOR_CONFIG = ObscureConfig(
+OBFUSCATOR_CONFIG = ObfuscationConfig(
    # During the entire obfuscation process, we only replace 1 times.
    replaces=Replace(count=1),
    break_words=BREAK_WORDS_RULES,

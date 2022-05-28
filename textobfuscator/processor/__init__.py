@@ -1,4 +1,4 @@
-from .construct import BreakWord, ObscureConfig, Replace
+from .construct import BreakWord, ObfuscationConfig, Replace
 from .format import KEY_PREFIX, RULE_FUNC, ObfuscatorFormat
 from .replace import DEFAULT_SKIP_ITEMS, ObfuscatorReplace
 from .word_break import ObfuscatorWordBreak
@@ -6,7 +6,7 @@ from .word_break import ObfuscatorWordBreak
 __all__ = [
     "Replace",
     "BreakWord",
-    "ObscureConfig",
+    "ObfuscationConfig",
     "KEY_PREFIX",
     "RULE_FUNC",
     "ObfuscatorReplace",

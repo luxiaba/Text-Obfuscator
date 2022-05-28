@@ -5,10 +5,10 @@ from textobfuscator.processor import (
     KEY_PREFIX,
     RULE_FUNC,
     BreakWord,
+    ObfuscationConfig,
     ObfuscatorFormat,
     ObfuscatorReplace,
     ObfuscatorWordBreak,
-    ObscureConfig,
     Replace,
 )
 from textobfuscator.utils import Utils
@@ -56,7 +56,7 @@ class TextObfuscator:
         """Format the content, fill predefine args."""
         return self.format_processor.mix(content, **kwargs)
 
-    def obfuscate(self, content: str, config: ObscureConfig, **kwargs) -> str:
+    def obfuscate(self, content: str, config: ObfuscationConfig, **kwargs) -> str:
         """Obfuscate the content with the config.
 
         1. Split content into segments by every args position.

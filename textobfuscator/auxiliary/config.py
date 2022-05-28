@@ -2,25 +2,20 @@ import random
 import string
 from typing import Dict, List, Tuple
 
-from textobfuscator.processor import KEY_PREFIX, RULE_FUNC, ObfuscatorReplace
+from textobfuscator.processor import KEY_PREFIX, RULE_FUNC
 from textobfuscator.utils import ChoiceEnum
 
 from .replace_maps import MAP_CYRILLIC_MIX_SOURCE, MAP_MIX_SOURCE, MAP_SIMPLE_MIX_SOURCE
 
 
 class TextObfuscatorReplaceLevel(ChoiceEnum):
-    L1 = "L1", (MAP_MIX_SOURCE, False)
-    L2 = "L2", (MAP_SIMPLE_MIX_SOURCE, False)
+    L1 = "L1", (MAP_SIMPLE_MIX_SOURCE, False)
+    L2 = "L2", (MAP_MIX_SOURCE, False)
     L3 = "L3", (MAP_CYRILLIC_MIX_SOURCE, True)
 
     def __init__(self, key, replace_mapping: Tuple[Tuple[List], bool]):
         self.key = key
         self.mapping, self.only_first = replace_mapping
-
-    @property
-    def processor(self):
-        """Get the processor for this level."""
-        return ObfuscatorReplace(self.mapping, only_first=self.only_first)
 
 
 class ObfuscatorFormatPrefixRules:
