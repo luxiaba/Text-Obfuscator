@@ -40,17 +40,20 @@ class TextObfuscator:
             content_items[start:end] = arg
         return "".join(content_items)
 
-    def _break_word(self, content: str, break_words: List[BreakWord] = None) -> str:
+    def break_word(self, content: str, break_words: List[BreakWord] = None) -> str:
+        """Break the words according to the config."""
         if not break_words:
             return content
         return self.break_processor.mix(content, break_words)
 
-    def _replace(self, content: str, replace_config: Replace) -> str:
+    def replace(self, content: str, replace_config: Replace) -> str:
+        """Replace the char in content according to the config."""
         if not replace_config:
             return content
         return self.replace_processor.mix(content, replace_config)
 
-    def _format(self, content: str, **kwargs) -> str:
+    def format(self, content: str, **kwargs) -> str:
+        """Format the content, fill predefine args."""
         return self.format_processor.mix(content, **kwargs)
 
     def obfuscate(self, content: str, config: ObscureConfig, **kwargs) -> str:
@@ -70,17 +73,17 @@ class TextObfuscator:
         content_segments = []
         for idx, (key, position) in enumerate(args_positions):
             this_end, next_start = position
-            break_word = self._break_word(content[prev_start:this_end], config.break_words)
+            break_word = self.break_word(content[prev_start:this_end], config.break_words)
             content_segments.extend([break_word, key])
             prev_start = next_start
         else:
-            break_word = self._break_word(content[prev_start:], config.break_words)
+            break_word = self.break_word(content[prev_start:], config.break_words)
             content_segments.append(break_word)
         breaded_content = "".join(content_segments)
 
         _content, args_positions = Utils.extra_args(RE_KEY_ARGS, breaded_content)
-        replaced_content = self._replace(_content, config.replaces)
+        replaced_content = self.replace(_content, config.replaces)
         need_format_content = self._put_back_key_args(replaced_content, args_positions)
 
         # Insert args if we have, or leave it as is.
-        return self._format(need_format_content, **kwargs)
+        return self.format(need_format_content, **kwargs)
