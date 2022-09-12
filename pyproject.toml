@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "TextObfuscator"
-version = "0.1.2"
+version = "0.1.3"
 description = "Text obfuscator."
 authors = ["fishermanadg <fishermanadg@gmail.com>"]
 license = "MIT"
