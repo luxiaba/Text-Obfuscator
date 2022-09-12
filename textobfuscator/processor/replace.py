@@ -1,6 +1,6 @@
 import random
 import re
-from typing import Dict, List, Pattern, Tuple
+from typing import Dict, List, Optional, Pattern, Tuple
 
 from ..utils import Utils
 from .construct import BaseObfuscator, Replace
@@ -21,7 +21,7 @@ class ObfuscatorReplace(BaseObfuscator):
         self.skip_re_items = DEFAULT_SKIP_ITEMS if skip_items is None else skip_items
 
     @staticmethod
-    def build_similar_map(source: Tuple[List, ...], only_first: bool = False) -> Tuple[Dict, Pattern]:
+    def build_similar_map(source: Tuple[List, ...], only_first: bool = False) -> Tuple[Dict, Optional[Pattern]]:
         """Build mapping/regex for each char we want to replace according to the source map.
 
         For each group chars in source:
@@ -38,7 +38,9 @@ class ObfuscatorReplace(BaseObfuscator):
 
         """
         line_mix_position = 1 if only_first else None
-        _map = {char: chars.copy() for chars in source for char in chars[:line_mix_position]}
+        _map = {char: chars.copy() for chars in source for char in chars[:line_mix_position] if char}
+        if not _map:
+            return _map, None
         # Remove self item.
         for char, similar_chars in _map.items():
             similar_chars.remove(char)
@@ -71,6 +73,9 @@ class ObfuscatorReplace(BaseObfuscator):
         2. Randomly choose a char from the source map to replace the matched char as we need.
         3. Put back skip items and combine with replaced chars to return.
         """
+        if not self._pattern:
+            return content
+
         cleaned_content = self.remove_skip_items(content)
         matched_places = list(self._pattern.finditer(cleaned_content))
         replace_cnt = self.calc_replace_cnt(len(matched_places), config)
